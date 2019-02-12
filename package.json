@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "tslint": "^5.12.1"
+  },
+  "scripts": {
+    "main": "tsc main.ts --target ES5 --emitDecoratorMetadata --experimentalDecorators && node main.js"
   }
 }

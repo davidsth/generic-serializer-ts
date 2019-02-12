@@ -1,4 +1,5 @@
-import {Serializer} from './Serializer'
+import {Serializer, transform} from './Serializer'
+import {SerializerHelper} from './SerializerHelper'
 
 export class Author {
     constructor(public firstName: string,
@@ -21,7 +22,9 @@ export class Book implements Serializer<Book> {
         return new Book(data.title, data.year, data.publisher, author)
     }
 
+    @transform(SerializerHelper.upCase)
     public serialize(data: Book): any {
+        console.log((data as any).test)
         return {
             title: data.title,
             author_attributes: {
